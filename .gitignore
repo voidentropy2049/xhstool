@@ -1,0 +1,13 @@
+# 系统文件
+Thumbs.db
+.DS_Store
+
+# IDE 相关
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# 临时文件
+*.zip
+*.crx
+*.pem

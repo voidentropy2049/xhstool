@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "小红书管家",
+  "version": "1.0.0",
+  "description": "小红书创作者内容管理工具 — 批量设置权限、置顶、删除和筛选自己的笔记",
+  "author": "人机协作笔记",
+  "homepage_url": "https://github.com/voidentropy2049/",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "小红书管家",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://creator.xiaohongshu.com/new/note-manager*"
+      ],
+      "js": ["lib/storage.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "downloads",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://creator.xiaohongshu.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/*"],
+      "matches": ["https://creator.xiaohongshu.com/*"]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+/* ===== 小红书管家 - 内容脚本样式 ===== */
+
+/* 选择模式工具栏 */
+.xhs-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  color: #fff;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 2px 12px rgba(255, 71, 87, 0.3);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.xhs-toolbar.active {
+  transform: translateY(0);
+}
+
+.xhs-toolbar .xhs-toolbar-title {
+  font-weight: 600;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.xhs-toolbar .xhs-toolbar-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.xhs-toolbar select,
+.xhs-toolbar button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.xhs-toolbar select {
+  background: #fff;
+  color: #333;
+  min-width: 100px;
+}
+
+.xhs-toolbar button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.xhs-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.xhs-toolbar button.xhs-btn-primary {
+  background: #fff;
+  color: #ff4757;
+  font-weight: 600;
+}
+
+.xhs-toolbar button.xhs-btn-primary:hover {
+  background: #f0f0f0;
+}
+
+.xhs-toolbar button.xhs-btn-danger {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.xhs-toolbar button.xhs-btn-danger:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.xhs-toolbar .xhs-toolbar-spacer {
+  flex: 1;
+}
+
+.xhs-toolbar .xhs-toolbar-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+  opacity: 0.7;
+}
+
+.xhs-toolbar .xhs-toolbar-close:hover {
+  opacity: 1;
+}
+
+/* 文章选择复选框 */
+.xhs-checkbox-overlay {
+  position: absolute !important;
+  top: 8px !important;
+  left: 8px !important;
+  z-index: 99999 !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 4px !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  cursor: pointer !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s !important;
+  box-sizing: border-box !important;
+}
+
+.xhs-checkbox-overlay.visible {
+  display: flex !important;
+}
+
+.xhs-checkbox-overlay:hover {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+.xhs-checkbox-overlay.checked {
+  background: #ff4757 !important;
+  border-color: #ff4757 !important;
+}
+
+.xhs-checkbox-overlay.checked::after {
+  content: '✓';
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 文章容器的相对定位（用于放置复选框） */
+.xhs-article-container {
+  position: relative !important;
+}
+
+/* 状态徽章 */
+.xhs-status-badge {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 99999 !important;
+  padding: 2px 8px !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  pointer-events: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  line-height: 1.4 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}

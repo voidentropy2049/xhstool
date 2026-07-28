@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私政策 — 小红书管家</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.8;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff2442;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #86868b;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e8e8ed;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      color: #1d1d1f;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #1d1d1f;
+    }
+    p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: #424245;
+    }
+    ul {
+      margin: 8px 0 16px 20px;
+    }
+    li {
+      font-size: 15px;
+      color: #424245;
+      margin-bottom: 6px;
+    }
+    strong {
+      color: #1d1d1f;
+    }
+    .highlight-box {
+      background: #fff2f4;
+      border-left: 4px solid #ff2442;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+    .highlight-box p {
+      margin-bottom: 0;
+      color: #5c1a24;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e8e8ed;
+      font-size: 13px;
+      color: #86868b;
+      text-align: center;
+    }
+    .footer a {
+      color: #ff2442;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 28px 20px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>隐私政策</h1>
+    <p class="subtitle">小红书管家 — 最后更新日期：2026 年 7 月 28 日</p>
+
+    <div class="highlight-box">
+      <p><strong>一句话承诺：</strong>本插件不会收集、上传或分享你的任何个人信息。所有数据仅存储在你自己浏览器的本地存储中。</p>
+    </div>
+
+    <h2>1. 数据收集</h2>
+    <p>
+      小红书管家<strong>不收集任何个人数据</strong>。本插件不会向任何服务器发送你的个人信息、浏览记录、账户信息或其他数据。
+    </p>
+
+    <h2>2. 数据存储</h2>
+    <p>本插件使用以下存储方式：</p>
+    <ul>
+      <li><strong>chrome.storage.local</strong> — 你保存的文章信息（标题、链接、状态标签、备注等）仅存储在浏览器的本地存储中。</li>
+      <li><strong>chrome.storage.sync</strong>（如有使用） — 插件设置选项通过浏览器账号同步到你的其他设备，数据经过 Google/微软加密传输。</li>
+    </ul>
+    <p>所有数据均保存在你自己的设备上，我们无法访问这些数据。</p>
+
+    <h2>3. 权限说明</h2>
+    <p>本插件申请的权限及其用途：</p>
+    <ul>
+      <li><strong>storage</strong> — 在本地保存你的文章数据和设置</li>
+      <li><strong>activeTab</strong> — 与当前小红书创作者后台页面交互</li>
+      <li><strong>scripting</strong> — 在页面上执行批量操作（设置权限、置顶等）</li>
+      <li><strong>downloads</strong> — 导出 CSV/JSON 文件到你的电脑</li>
+      <li><strong>sidePanel</strong> — 提供侧边栏界面</li>
+      <li><strong>host_permissions</strong> — 仅在 <code>creator.xiaohongshu.com</code> 域名下生效</li>
+    </ul>
+    <p>这些权限仅用于实现插件功能，不会用于追踪或收集你的信息。</p>
+
+    <h2>4. 第三方服务</h2>
+    <p>本插件<strong>不集成</strong>任何第三方分析工具（如 Google Analytics）、广告服务或第三方 SDK。插件完全离线运行。</p>
+
+    <h2>5. 数据导出与删除</h2>
+    <p>你可以随时在插件设置页面中：</p>
+    <ul>
+      <li><strong>导出数据</strong> — 将你的文章数据导出为 CSV 或 JSON 文件</li>
+      <li><strong>清除数据</strong> — 一键删除所有本地存储的数据</li>
+    </ul>
+    <p>卸载插件后，所有本地数据将在浏览器清除扩展数据时自动删除。你也可以手动在浏览器扩展管理页面中清除该插件的数据。</p>
+
+    <h2>6. 儿童隐私</h2>
+    <p>本插件不面向 13 岁以下儿童，也不会故意收集儿童的个人信息。</p>
+
+    <h2>7. 政策更新</h2>
+    <p>如果本隐私政策发生变更，我们会在插件内以及此页面更新"最后更新日期"。重大变更会通过插件内通知告知用户。</p>
+
+    <h2>8. 联系方式</h2>
+    <p>如对本隐私政策有任何疑问，欢迎联系：</p>
+    <ul>
+      <li>📧 邮箱：<a href="mailto:voidentropy2049@gmail.com">voidentropy2049@gmail.com</a></li>
+      <li>📕 小红书：@人机协作笔记</li>
+    </ul>
+
+    <div class="footer">
+      <p>© 2026 小红书管家. | <a href="https://github.com/voidentropy2049/" target="_blank">GitHub</a></p>
+    </div>
+  </div>
+</body>
+</html>

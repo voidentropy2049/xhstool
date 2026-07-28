@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小红书管家 - 设置</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="logo">📋</span>
+        <h2>小红书管家</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-tab="general">
+          <span class="nav-icon">⚙️</span>
+          <span>基本设置</span>
+        </button>
+        <button class="nav-item" data-tab="status">
+          <span class="nav-icon">🏷️</span>
+          <span>状态管理</span>
+        </button>
+        <button class="nav-item" data-tab="data">
+          <span class="nav-icon">💾</span>
+          <span>数据管理</span>
+        </button>
+        <button class="nav-item" data-tab="about">
+          <span class="nav-icon">ℹ️</span>
+          <span>关于</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <span>v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main">
+      <!-- 基本设置 -->
+      <section class="tab-content active" id="tab-general">
+        <h2>⚙️ 基本设置</h2>
+
+        <div class="setting-group">
+          <h3>通用选项</h3>
+
+          <label class="setting-row">
+            <span class="setting-label">
+              <strong>自动保存</strong>
+              <small>浏览小红书时自动保存文章到本地</small>
+            </span>
+            <input type="checkbox" id="setting-autoSave" />
+          </label>
+
+          <label class="setting-row">
+            <span class="setting-label">
+              <strong>显示复选框</strong>
+              <small>在文章卡片上显示选择框</small>
+            </span>
+            <input type="checkbox" id="setting-showCheckboxes" />
+          </label>
+
+          <label class="setting-row">
+            <span class="setting-label">
+              <strong>显示状态徽章</strong>
+              <small>在已标记的文章卡片上显示状态标签</small>
+            </span>
+            <input type="checkbox" id="setting-showStatusBadge" />
+          </label>
+        </div>
+
+        <div class="setting-group">
+          <h3>导出设置</h3>
+
+          <label class="setting-row">
+            <span class="setting-label">
+              <strong>默认导出格式</strong>
+            </span>
+            <select id="setting-exportFormat">
+              <option value="csv">CSV（Excel 可打开）</option>
+              <option value="json">JSON</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="setting-actions">
+          <button class="btn btn-primary" id="btnSaveSettings">保存设置</button>
+          <span id="saveSettingsStatus" class="status-msg"></span>
+        </div>
+      </section>
+
+      <!-- 状态管理 -->
+      <section class="tab-content" id="tab-status">
+        <h2>🏷️ 状态管理</h2>
+        <p class="tab-desc">自定义文章状态标签，支持修改名称、颜色和图标。</p>
+
+        <div id="statusList" class="status-list"></div>
+
+        <div class="setting-actions">
+          <button class="btn btn-outline" id="btnAddStatus">➕ 添加状态</button>
+          <button class="btn btn-primary" id="btnSaveStatuses">保存状态</button>
+          <button class="btn btn-link" id="btnResetStatuses">恢复默认</button>
+          <span id="saveStatusesStatus" class="status-msg"></span>
+        </div>
+      </section>
+
+      <!-- 数据管理 -->
+      <section class="tab-content" id="tab-data">
+        <h2>💾 数据管理</h2>
+
+        <div class="data-card">
+          <h3>导出数据</h3>
+          <p>将所有文章数据导出为文件。</p>
+          <div class="data-actions">
+            <button class="btn btn-outline" id="btnExportCSV">📥 导出 CSV</button>
+            <button class="btn btn-outline" id="btnExportJSON">📥 导出 JSON</button>
+          </div>
+        </div>
+
+        <div class="data-card">
+          <h3>导入数据</h3>
+          <p>从 JSON 文件导入文章数据。</p>
+          <div class="data-actions">
+            <input type="file" id="fileInput" accept=".json" style="display:none" />
+            <button class="btn btn-outline" id="btnImportJSON">📤 导入 JSON</button>
+          </div>
+        </div>
+
+        <div class="data-card danger">
+          <h3>清空数据</h3>
+          <p>⚠️ 删除所有保存的文章数据，此操作不可撤销。</p>
+          <div class="data-actions">
+            <button class="btn btn-danger" id="btnClearData">🗑️ 清空全部数据</button>
+          </div>
+        </div>
+
+        <div id="dataStatus" class="status-msg"></div>
+      </section>
+
+      <!-- 关于 -->
+      <section class="tab-content" id="tab-about">
+        <h2>ℹ️ 关于</h2>
+
+        <div class="about-card">
+          <div class="about-logo">📋</div>
+          <h3>小红书管家</h3>
+          <p class="about-version">版本 1.0.0</p>
+          <p class="about-desc">
+            一款浏览器插件，帮助你高效管理小红书文章。<br />
+            支持批量设置状态、收藏标记、导出数据和筛选搜索。
+          </p>
+          <div class="about-features">
+            <h4>功能特性</h4>
+            <ul>
+              <li>📄 自动保存浏览的小红书文章</li>
+              <li>🏷️ 自定义文章状态标签</li>
+              <li>✅ 批量更新文章状态</li>
+              <li>📥 导出数据（CSV / JSON）</li>
+              <li>🔍 搜索和筛选文章</li>
+              <li>📊 数据统计概览</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-card" style="margin-top: 20px;">
+          <div class="about-contact">
+            <h4>📬 联系作者</h4>
+            <p>如有问题、建议或合作意向，欢迎联系：</p>
+            <ul>
+              <li>📧 邮箱：<a href="mailto:your-email@example.com">your-email@example.com</a></li>
+              <li>📕 小红书：<a href="https://www.xiaohongshu.com/user/your-user-id" target="_blank">@你的小红书账号</a></li>
+            </ul>
+            <p style="margin-top: 16px; font-size: 13px;">
+              🔒 <a href="../docs/privacy.html" target="_blank">查看隐私政策</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

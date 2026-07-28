@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小红书管家</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="header">
+      <div><p class="eyebrow">CREATOR DESK</p><h1>笔记管理</h1></div>
+      <button class="icon-btn" id="btnRefresh" title="刷新列表" aria-label="刷新列表">↻</button>
+    </header>
+    <section class="context-bar"><span id="pageState">正在连接创作者后台</span><span id="totalCount">0 篇</span></section>
+    <section class="selection-bar">
+      <label class="select-all"><input type="checkbox" id="selectAll" /><span>全选当前列表</span></label>
+      <span id="selectedCount">已选 0 篇</span>
+    </section>
+    <section class="article-list" id="articleList" aria-live="polite"></section>
+    <section class="empty-state" id="emptyState" hidden><strong>没有读取到笔记</strong><span>请打开创作者后台的笔记管理页并刷新。</span></section>
+    <section class="batch-panel" id="batchPanel">
+      <div class="batch-heading"><strong>批量管理</strong><span id="batchFeedback">请选择文章后开始操作</span></div>
+      <div class="batch-actions">
+        <button class="btn" data-action="permission">修改权限</button>
+        <button class="btn btn-locked" data-action="pin" data-locked="1" title="后续版本解锁"><svg class="lock-icon" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 5a3 3 0 1 1 6 0v3H9V7Z"/></svg>批量置顶</button>
+        <button class="btn btn-locked" data-action="delete" data-locked="1" title="后续版本解锁"><svg class="lock-icon" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 5a3 3 0 1 1 6 0v3H9V7Z"/></svg>批量删除</button>
+      </div>
+      <div class="permission-menu" id="permissionMenu" hidden>
+        <span>设置为</span>
+        <button class="permission-option" data-permission="public">公开可见</button>
+        <button class="permission-option" data-permission="private">仅自己可见</button>
+        <button class="permission-option" data-permission="friends">仅互关好友可见</button>
+      </div>
+      <div class="permission-menu" id="pinMenu" hidden>
+        <span>设置为</span>
+        <button class="permission-option" data-pin="1">置顶</button>
+        <button class="permission-option" data-pin="0">取消置顶</button>
+      </div>
+    </section>
+    <footer class="footer"><button class="link-btn" id="btnOpenManager">打开笔记管理页</button><span>仅操作当前登录账号</span></footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
