@@ -14,140 +14,132 @@
       padding: 40px 20px;
     }
     .container {
-      max-width: 800px;
+      max-width: 780px;
       margin: 0 auto;
       background: #fff;
       border-radius: 16px;
-      padding: 48px 40px;
+      padding: 48px 44px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
     h1 {
       font-size: 28px;
       font-weight: 700;
       color: #ff2442;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      margin-bottom: 4px;
+      text-align: center;
     }
     .subtitle {
       font-size: 14px;
       color: #86868b;
+      text-align: center;
       margin-bottom: 32px;
       padding-bottom: 20px;
       border-bottom: 1px solid #e8e8ed;
     }
     h2 {
       font-size: 20px;
-      font-weight: 600;
-      margin-top: 36px;
-      margin-bottom: 16px;
+      font-weight: 700;
+      margin: 32px 0 16px;
       color: #1d1d1f;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #f0f0f0;
+      gap: 8px;
     }
-    h3 {
-      font-size: 16px;
+    h2 .tag {
+      font-size: 12px;
       font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 12px;
-      color: #1d1d1f;
+      padding: 2px 10px;
+      border-radius: 20px;
+      color: #fff;
+      margin-left: 6px;
     }
-    p {
-      margin-bottom: 14px;
-      font-size: 15px;
-      color: #424245;
-    }
-    ol, ul {
-      margin: 8px 0 20px 24px;
-    }
-    li {
-      font-size: 15px;
-      color: #424245;
-      margin-bottom: 10px;
-      line-height: 1.7;
-    }
-    strong {
-      color: #1d1d1f;
-    }
-    code {
-      background: #f2f2f2;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 14px;
-      color: #e03e2d;
-      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
-    }
-    .step-box {
+    .tag.chrome { background: #4285f4; }
+    .tag.edge { background: #0078d7; }
+    .step-row {
+      display: flex;
+      gap: 16px;
+      margin: 12px 0;
+      padding: 16px 20px;
       background: #f9f9fb;
       border: 1px solid #e8e8ed;
       border-radius: 12px;
-      padding: 20px 24px;
-      margin: 16px 0;
-      position: relative;
+      align-items: flex-start;
     }
-    .step-box .step-num {
-      display: inline-block;
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
       background: #ff2442;
       color: #fff;
-      width: 24px;
-      height: 24px;
       border-radius: 50%;
       text-align: center;
-      line-height: 24px;
-      font-size: 13px;
+      line-height: 28px;
+      font-size: 14px;
       font-weight: 700;
-      margin-right: 8px;
+      margin-top: 2px;
     }
-    .tip-box {
+    .step-body { flex: 1; min-width: 0; }
+    .step-body .title {
+      font-weight: 600;
+      font-size: 15px;
+      color: #1d1d1f;
+      margin-bottom: 2px;
+    }
+    .step-body .desc {
+      font-size: 14px;
+      color: #636366;
+      line-height: 1.6;
+    }
+    .step-body .desc strong { color: #1d1d1f; font-weight: 600; }
+    .step-body .desc code {
+      background: #e8e8ed;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #e03e2d;
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+    }
+    .step-body .hint {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 13px;
+      color: #86868b;
+      background: #f0f0f0;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    .tip-card {
       background: #fff8e1;
       border-left: 4px solid #ffc107;
-      padding: 14px 18px;
+      padding: 16px 20px;
       border-radius: 8px;
-      margin: 16px 0;
+      margin: 12px 0;
     }
-    .tip-box p {
-      margin-bottom: 0;
-      color: #6d5200;
-      font-size: 14px;
-    }
-    .warning-box {
+    .tip-card .title { font-weight: 600; font-size: 15px; color: #6d5200; }
+    .tip-card .desc { font-size: 14px; color: #6d5200; margin-top: 2px; }
+    .warn-card {
       background: #fff2f4;
       border-left: 4px solid #ff2442;
-      padding: 14px 18px;
+      padding: 16px 20px;
       border-radius: 8px;
+      margin: 12px 0;
+    }
+    .warn-card .title { font-weight: 600; font-size: 15px; color: #5c1a24; }
+    .warn-card .desc { font-size: 14px; color: #5c1a24; margin-top: 2px; }
+    .faq-item {
       margin: 16px 0;
+      padding: 16px 20px;
+      border: 1px solid #e8e8ed;
+      border-radius: 10px;
     }
-    .warning-box p {
-      margin-bottom: 0;
-      color: #5c1a24;
-      font-size: 14px;
-    }
-    .store-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #1d1d1f;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      margin: 8px 4px;
-      transition: opacity 0.2s;
-    }
-    .store-badge:hover {
-      opacity: 0.85;
-    }
-    .store-badge.edge {
-      background: #0078d7;
-    }
-    .store-badge.chrome {
-      background: #4285f4;
+    .faq-item .q { font-weight: 600; font-size: 15px; color: #1d1d1f; margin-bottom: 4px; }
+    .faq-item .a { font-size: 14px; color: #636366; }
+    .faq-item .a code {
+      background: #e8e8ed;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #e03e2d;
     }
     .footer {
       margin-top: 40px;
@@ -157,151 +149,131 @@
       color: #86868b;
       text-align: center;
     }
-    .footer a {
-      color: #ff2442;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
     @media (max-width: 600px) {
-      .container { padding: 28px 20px; }
+      .container { padding: 28px 18px; }
       h1 { font-size: 22px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>
-      <span>📋</span>
-      <span>小红书管家 — 安装指南</span>
-    </h1>
-    <p class="subtitle">支持 Chrome 和 Edge 浏览器 · 安装只需 1 分钟</p>
+    <h1>📋 小红书管家</h1>
+    <p class="subtitle">浏览器插件安装指南 · 支持 Chrome 和 Edge</p>
 
-    <!-- ===== Chrome ===== -->
-    <h2>🌐 Google Chrome</h2>
+    <!-- Chrome -->
+    <h2>🌐 Google Chrome <span class="tag chrome">Chrome</span></h2>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">1</span>
-        <strong>打开 Chrome 网上应用商店</strong><br />
-        点击下方按钮，或访问 Chrome 网上应用商店搜索"小红书管家"。
-      </p>
-      <p style="text-align:center; margin:12px 0;">
-        <a class="store-badge chrome" href="https://chrome.google.com/webstore" target="_blank">
-          🌐 在 Chrome 网上应用商店查看
-        </a>
-      </p>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="title">打开 Chrome 网上应用商店</div>
+        <div class="desc">在浏览器地址栏输入 <code>chrome://webstore</code> 并回车。</div>
+      </div>
     </div>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">2</span>
-        <strong>点击"添加到 Chrome"</strong><br />
-        在商品详情页中，点击右上角的 <strong>"添加到 Chrome"</strong> 按钮。
-      </p>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="title">搜索"小红书管家"</div>
+        <div class="desc">在商店搜索框中输入 <strong>"小红书管家"</strong>，找到本插件。</div>
+      </div>
     </div>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">3</span>
-        <strong>确认权限</strong><br />
-        弹出对话框会显示插件所需的权限，点击 <strong>"添加扩展程序"</strong> 确认。
-      </p>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="title">点击"添加到 Chrome"</div>
+        <div class="desc">在商品详情页中，点击右上角的 <strong>"添加到 Chrome"</strong> 蓝色按钮。</div>
+      </div>
     </div>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">4</span>
-        <strong>安装完成 🎉</strong><br />
-        安装成功后，浏览器右上角工具栏会出现 📋 图标。点击图标即可开始使用！
-      </p>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="title">确认权限并完成安装</div>
+        <div class="desc">弹出窗口中会显示插件所需的权限，点击 <strong>"添加扩展程序"</strong> 确认。</div>
+        <div class="hint">✅ 安装成功后，右上角工具栏会出现 📋 图标</div>
+      </div>
     </div>
 
-    <!-- ===== Edge ===== -->
-    <h2>🧭 Microsoft Edge</h2>
+    <!-- Edge -->
+    <h2>🧭 Microsoft Edge <span class="tag edge">Edge</span></h2>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">1</span>
-        <strong>打开 Edge 扩展商店</strong><br />
-        点击下方按钮，或访问 Edge 扩展商店搜索"小红书管家"。
-      </p>
-      <p style="text-align:center; margin:12px 0;">
-        <a class="store-badge edge" href="https://microsoftedge.microsoft.com/addons" target="_blank">
-          🧭 在 Edge 扩展商店查看
-        </a>
-      </p>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="title">打开 Edge 扩展商店</div>
+        <div class="desc">地址栏输入 <code>edge://extensions/</code> 回车，点击左下角 <strong>"从 Microsoft Edge 扩展获取"</strong>。</div>
+      </div>
     </div>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">2</span>
-        <strong>点击"获取"</strong><br />
-        在商品详情页中，点击 <strong>"获取"</strong> 按钮。
-      </p>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="title">搜索"小红书管家"</div>
+        <div class="desc">在商店搜索框中输入 <strong>"小红书管家"</strong>，找到本插件。</div>
+      </div>
     </div>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">3</span>
-        <strong>确认添加</strong><br />
-        弹出窗口中点击 <strong>"添加扩展"</strong> 确认安装。
-      </p>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="title">点击"获取"</div>
+        <div class="desc">在商品详情页中，点击 <strong>"获取"</strong> 按钮。</div>
+      </div>
     </div>
 
-    <div class="step-box">
-      <p>
-        <span class="step-num">4</span>
-        <strong>安装完成 🎉</strong><br />
-        安装成功后，浏览器右上角工具栏会出现 📋 图标。点击图标即可开始使用！
-      </p>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="title">确认添加并完成安装</div>
+        <div class="desc">弹出窗口中点击 <strong>"添加扩展"</strong> 确认安装。</div>
+        <div class="hint">✅ 安装成功后，右上角工具栏会出现 📋 图标</div>
+      </div>
     </div>
 
-    <!-- ===== 通用提示 ===== -->
-    <h2>💡 使用提示</h2>
+    <!-- 使用指引 -->
+    <h2>💡 安装后使用指引</h2>
 
-    <div class="tip-box">
-      <p>
-        <strong>📌 固定到工具栏</strong><br />
-        安装后，点击浏览器右上角的拼图图标（扩展管理），找到"小红书管家"旁边的 📌 图钉，将其固定到工具栏方便快速访问。
-      </p>
+    <div class="tip-card">
+      <div class="title">📌 第一步：固定到工具栏</div>
+      <div class="desc">点击浏览器右上角的 🧩 拼图图标（扩展管理），在列表中找到"小红书管家"，点击旁边的 📌 图钉将其固定到工具栏。</div>
     </div>
 
-    <div class="tip-box">
-      <p>
-        <strong>⚙️ 打开设置</strong><br />
-        右键点击工具栏的 📋 图标，选择 <strong>"选项"</strong> 进入设置页面，可自定义状态标签、导入导出数据等。
-      </p>
+    <div class="tip-card">
+      <div class="title">⚙️ 第二步：打开设置</div>
+      <div class="desc"><strong>右键</strong>点击工具栏的 📋 图标，选择 <strong>"选项"</strong> 进入设置页面。可自定义状态标签、导入导出数据。</div>
     </div>
 
-    <div class="warning-box">
-      <p>
-        <strong>⚠️ 使用前提</strong><br />
-        本插件需要在小红书创作者后台（creator.xiaohongshu.com）的笔记管理页面中使用。请确保你已登录小红书账号并拥有创作者权限。
-      </p>
+    <div class="tip-card">
+      <div class="title">🚀 第三步：开始使用</div>
+      <div class="desc">打开 <strong>小红书创作者后台</strong> → <strong>笔记管理</strong> 页面，插件自动生效。可批量设置权限、置顶、删除笔记。</div>
     </div>
 
+    <div class="warn-card">
+      <div class="title">⚠️ 使用前提</div>
+      <div class="desc">需要在小红书创作者后台（<code>creator.xiaohongshu.com</code>）的笔记管理页面中使用。请确保已登录小红书账号并拥有创作者权限。</div>
+    </div>
+
+    <!-- FAQ -->
     <h2>❓ 常见问题</h2>
 
-    <p><strong>Q：插件无法正常工作？</strong></p>
-    <p>A：请确保你已登录小红书创作者后台，并打开笔记管理页面（<code>https://creator.xiaohongshu.com/new/note-manager</code>）。尝试刷新页面或重新安装插件。</p>
-
-    <p><strong>Q：数据存在哪里？安全吗？</strong></p>
-    <p>A：所有数据仅存储在浏览器本地，不会上传到任何服务器。卸载插件或清除浏览器数据会导致数据丢失，建议定期导出备份。</p>
-
-    <p><strong>Q：如何卸载？</strong></p>
-    <p>A：在地址栏输入 <code>chrome://extensions/</code>（Chrome）或 <code>edge://extensions/</code>（Edge），找到"小红书管家"，点击"移除"即可。</p>
-
-    <div class="footer">
-      <p>
-        © 2026 小红书管家 · 
-        <a href="privacy.html" target="_blank">隐私政策</a> · 
-        <a href="https://github.com/voidentropy2049/" target="_blank">GitHub</a>
-      </p>
+    <div class="faq-item">
+      <div class="q">Q：插件安装后没有反应？</div>
+      <div class="a">请确保已登录小红书创作者后台，并打开笔记管理页面（<code>https://creator.xiaohongshu.com/new/note-manager</code>）。尝试刷新页面或重新安装。</div>
     </div>
-  </div>
 
-  
+    <div class="faq-item">
+      <div class="q">Q：数据存在哪里？安全吗？</div>
+      <div class="a">所有数据仅存储在<strong>浏览器本地</strong>，不会上传到任何服务器。卸载插件或清除浏览器数据会导致数据丢失，建议定期导出备份。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Q：如何卸载插件？</div>
+      <div class="a">地址栏输入 <code>chrome://extensions/</code>（Chrome）或 <code>edge://extensions/</code>（Edge），找到"小红书管家"，点击 <strong>"移除"</strong>。</div>
+    </div>
+
+    <div class="footer">© 2026 小红书管家</div>
+  </div>
 </body>
 </html>
