@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loadPageArticles(retries = 0, allowReload = true) {
+  const [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!isManagerPageUrl(currentTab?.url)) {
+    showManagerPagePrompt();
+    return;
+  }
+
   isLoading = true;
   renderSelectionState();
   setPageState('正在读取列表…');
@@ -58,11 +64,15 @@ async function loadPageArticles(retries = 0, allowReload = true) {
       await reloadTab(tab.id);
       return loadPageArticles(0, false);
     }
-    articles = [];
-    selectedIds.clear();
-    render();
-    setPageState(onManagerPage ? '读取失败，请刷新页面后重试' : '请先打开笔记管理页');
-    setManagerButtonVisible(!onManagerPage);
+    if (onManagerPage) {
+      articles = [];
+      selectedIds.clear();
+      render();
+      setPageState('读取失败，请刷新页面后重试');
+      setManagerButtonVisible(false);
+    } else {
+      showManagerPagePrompt();
+    }
   } finally {
     isLoading = false;
     renderSelectionState();
@@ -101,6 +111,14 @@ async function updateManagerButton() {
 
 function setManagerButtonVisible(visible) {
   $('#btnOpenManager').hidden = !visible;
+}
+
+function showManagerPagePrompt() {
+  articles = [];
+  selectedIds.clear();
+  render();
+  setPageState('请打开笔记管理页');
+  setManagerButtonVisible(true);
 }
 
 function render() {
