@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "小红书管家",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "小红书创作者内容管理工具 — 批量设置权限、置顶、删除和筛选自己的笔记",
   "author": "人机协作笔记",
   "homepage_url": "https://github.com/voidentropy2049/",
