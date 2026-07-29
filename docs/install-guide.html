@@ -16,11 +16,15 @@
     .container {
       max-width: 780px;
       margin: 0 auto;
+    }
+    .card-section {
       background: #fff;
       border-radius: 16px;
-      padding: 48px 44px;
+      padding: 32px 36px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
     }
+    .card-section:last-child { margin-bottom: 0; }
     h1 {
       font-size: 28px;
       font-weight: 700;
@@ -32,9 +36,7 @@
       font-size: 14px;
       color: #86868b;
       text-align: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #e8e8ed;
+      margin-bottom: 28px;
     }
     h2 {
       font-size: 20px;
@@ -160,27 +162,22 @@
     <h1>📋 小红书管家</h1>
     <p class="subtitle">浏览器插件安装指南 · 支持 Chrome 和 Edge</p>
 
-    <!-- Chrome -->
+    <!-- 卡片一：安装教程 -->
+    <div class="card-section">
+
+      <!-- Chrome -->
     <h2>🌐 Google Chrome <span class="tag chrome">Chrome</span></h2>
 
     <div class="step-row">
       <div class="step-num">1</div>
       <div class="step-body">
-        <div class="title">打开 Chrome 网上应用商店</div>
-        <div class="desc">在浏览器地址栏输入 <code>chrome://webstore</code> 并回车。</div>
+        <div class="title">打开插件页面</div>
+        <div class="desc">在浏览器地址栏输入下方链接并回车：<br /><code style="font-size:13px;">https://chromewebstore.google.com/detail/agmhbhofmbcidcmokocnpeicegnjhjee</code></div>
       </div>
     </div>
 
     <div class="step-row">
       <div class="step-num">2</div>
-      <div class="step-body">
-        <div class="title">搜索"小红书管家"</div>
-        <div class="desc">在商店搜索框中输入 <strong>"小红书管家"</strong>，找到本插件。</div>
-      </div>
-    </div>
-
-    <div class="step-row">
-      <div class="step-num">3</div>
       <div class="step-body">
         <div class="title">点击"添加到 Chrome"</div>
         <div class="desc">在商品详情页中，点击右上角的 <strong>"添加到 Chrome"</strong> 蓝色按钮。</div>
@@ -188,7 +185,7 @@
     </div>
 
     <div class="step-row">
-      <div class="step-num">4</div>
+      <div class="step-num">3</div>
       <div class="step-body">
         <div class="title">确认权限并完成安装</div>
         <div class="desc">弹出窗口中会显示插件所需的权限，点击 <strong>"添加扩展程序"</strong> 确认。</div>
@@ -202,38 +199,25 @@
     <div class="step-row">
       <div class="step-num">1</div>
       <div class="step-body">
-        <div class="title">打开 Edge 扩展商店</div>
-        <div class="desc">地址栏输入 <code>edge://extensions/</code> 回车，点击左下角 <strong>"从 Microsoft Edge 扩展获取"</strong>。</div>
+        <div class="title">打开插件页面</div>
+        <div class="desc">Edge 基于 Chromium 内核，完全兼容 Chrome 扩展。<br />在地址栏输入下方链接并回车：<br /><code style="font-size:13px;">https://chromewebstore.google.com/detail/agmhbhofmbcidcmokocnpeicegnjhjee</code></div>
       </div>
     </div>
 
     <div class="step-row">
       <div class="step-num">2</div>
       <div class="step-body">
-        <div class="title">搜索"小红书管家"</div>
-        <div class="desc">在商店搜索框中输入 <strong>"小红书管家"</strong>，找到本插件。</div>
-      </div>
-    </div>
-
-    <div class="step-row">
-      <div class="step-num">3</div>
-      <div class="step-body">
         <div class="title">点击"获取"</div>
-        <div class="desc">在商品详情页中，点击 <strong>"获取"</strong> 按钮。</div>
-      </div>
-    </div>
-
-    <div class="step-row">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <div class="title">确认添加并完成安装</div>
-        <div class="desc">弹出窗口中点击 <strong>"添加扩展"</strong> 确认安装。</div>
+        <div class="desc">在页面中点击 <strong>"获取"</strong> 按钮，弹出窗口中点击 <strong>"添加扩展"</strong> 确认安装。</div>
         <div class="hint">✅ 安装成功后，右上角工具栏会出现 📋 图标</div>
       </div>
     </div>
 
-    <!-- 使用指引 -->
-    <h2>💡 安装后使用指引</h2>
+    </div>
+
+    <!-- 卡片二：使用指引 -->
+    <div class="card-section">
+      <h2>💡 安装后使用指引</h2>
 
     <div class="tip-card">
       <div class="title">📌 第一步：固定到工具栏</div>
@@ -274,6 +258,7 @@
     </div>
 
     <div class="footer">© 2026 小红书管家</div>
+    </div>
   </div>
 </body>
 </html>
