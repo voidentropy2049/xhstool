@@ -27,7 +27,8 @@
   const PERMISSION_STATUS_REQUEST = 'xhs-tool-permission-status-request';
   const NOTE_ACTION_REQUEST = 'xhs-tool-note-action-request';
   const NOTES_REQUEST = 'xhs-tool-notes-request';
-  const BATCH_ACTION_INTERVAL_MS = 300;
+  const BATCH_ACTION_DELAY_MS = [2500, 4500];
+  const LIST_REQUEST_DELAY_MS = [1000, 1800];
   let bridgeReady = null;
   let bridgeSeq = 0;
 
@@ -189,7 +190,7 @@
 
         if (scrollHost) scrollHost.scrollTop = scrollHost.scrollHeight;
         window.scrollTo(0, document.documentElement.scrollHeight);
-        await wait(650);
+        await randomWait(LIST_REQUEST_DELAY_MS);
       }
       scanArticles();
     })().finally(() => {
@@ -692,7 +693,7 @@
       } catch (error) {
         failed++;
       }
-      await wait(BATCH_ACTION_INTERVAL_MS);
+      await randomWait(BATCH_ACTION_DELAY_MS);
     }
 
     return {
@@ -727,7 +728,7 @@
       } catch (error) {
         failed++;
       }
-      await wait(BATCH_ACTION_INTERVAL_MS);
+      await randomWait(BATCH_ACTION_DELAY_MS);
     }
 
     return { completed, failed };
@@ -745,14 +746,13 @@
       .map(([card, data]) => ({ card, data, noteId: getNoteId(card) }))
       .filter((entry) => entry.noteId);
     await ensureBridge();
-    for (let index = 0; index < entries.length; index += 8) {
-      await Promise.all(entries.slice(index, index + 8).map(async ({ data, noteId }) => {
-        try {
-          data.permission = await requestPermissionStatus(noteId);
-        } catch (error) {
-          data.permission = null;
-        }
-      }));
+    for (const { data, noteId } of entries) {
+      try {
+        data.permission = await requestPermissionStatus(noteId);
+      } catch (error) {
+        data.permission = null;
+      }
+      await randomWait(LIST_REQUEST_DELAY_MS);
     }
   }
 
@@ -764,6 +764,7 @@
         const pageNotes = await requestCreatorNotes(page);
         notes.push(...pageNotes);
         if (pageNotes.length === 0) break;
+        await randomWait(LIST_REQUEST_DELAY_MS);
       }
       const statusById = new Map(notes.map((note) => [String(note.id), note]));
       for (const [card, data] of articleElements.entries()) {
@@ -906,6 +907,10 @@
 
   function wait(duration) {
     return new Promise((resolve) => setTimeout(resolve, duration));
+  }
+
+  function randomWait([min, max]) {
+    return wait(min + Math.random() * (max - min));
   }
 
   // ===== Toast 提示 =====

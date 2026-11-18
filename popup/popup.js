@@ -2,11 +2,13 @@ const MANAGER_URL = 'https://creator.xiaohongshu.com/new/note-manager';
 let articles = [];
 const selectedIds = new Set();
 let isLoading = false;
+const REFRESH_COOLDOWN_MS = 15000;
+let lastRefreshAt = 0;
 const $ = (selector) => document.querySelector(selector);
 const isManagerPageUrl = (url) => typeof url === 'string' && url.startsWith(MANAGER_URL);
 
 document.addEventListener('DOMContentLoaded', () => {
-  $('#btnRefresh').addEventListener('click', () => loadPageArticles());
+  $('#btnRefresh').addEventListener('click', refreshArticles);
   $('#selectAll').addEventListener('change', toggleSelectAll);
   $('#btnOpenManager').addEventListener('click', () => chrome.tabs.create({ url: MANAGER_URL }));
   document.querySelectorAll('[data-action]').forEach((button) => button.addEventListener('click', () => {
@@ -32,6 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
   loadPageArticles();
 });
 
+async function refreshArticles() {
+  const elapsed = Date.now() - lastRefreshAt;
+  if (elapsed < REFRESH_COOLDOWN_MS) {
+    const remaining = Math.ceil((REFRESH_COOLDOWN_MS - elapsed) / 1000);
+    setFeedback(`刷新过于频繁，请 ${remaining} 秒后再试`, 'info');
+    return;
+  }
+  lastRefreshAt = Date.now();
+  return loadPageArticles();
+}
+
 async function loadPageArticles(retries = 0, allowReload = true) {
   const [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!isManagerPageUrl(currentTab?.url)) {
@@ -53,7 +66,7 @@ async function loadPageArticles(retries = 0, allowReload = true) {
     setManagerButtonVisible(false);
   } catch (error) {
     if (retries > 0) {
-      await wait(1000);
+      await wait(3000);
       return loadPageArticles(retries - 1, allowReload);
     }
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
